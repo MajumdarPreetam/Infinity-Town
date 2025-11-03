@@ -8,12 +8,6 @@ body {
   overscroll-behavior: none;
 }
 
-canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
 #about-button {
   position: absolute;
   top: 1em;
@@ -90,65 +84,4 @@ canvas {
 
 .blur {
   filter: blur(20px);
-}
-/* =============================
-   TRAFFIC LIGHT SYSTEM
-   ============================= */
-
-.traffic-container {
-  position: absolute;
-  bottom: 10%;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999; /* ensures it's visible above everything */
-}
-
-.traffic-light {
-  width: 70px;
-  height: 180px;
-  background-color: #222;
-  border-radius: 20px;
-  padding: 15px;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.light {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: #333;
-  box-shadow: 0 0 10px #000 inset;
-  transition: background-color 0.5s, box-shadow 0.5s;
-}
-
-/* Animated cycle */
-@keyframes redCycle {
-  0%, 33% { background-color: #ff0000; box-shadow: 0 0 20px 5px #ff0000; }
-  34%, 100% { background-color: #333; box-shadow: none; }
-}
-@keyframes yellowCycle {
-  0%, 33% { background-color: #333; box-shadow: none; }
-  34%, 66% { background-color: #ffff00; box-shadow: 0 0 20px 5px #ffff00; }
-  67%, 100% { background-color: #333; box-shadow: none; }
-}
-@keyframes greenCycle {
-  0%, 66% { background-color: #333; box-shadow: none; }
-  67%, 100% { background-color: #00ff00; box-shadow: 0 0 20px 5px #00ff00; }
-}
-
-.light.red {
-  animation: redCycle 9s infinite;
-}
-.light.yellow {
-  animation: yellowCycle 9s infinite;
-}
-.light.green {
-  animation: greenCycle 9s infinite;
 }
