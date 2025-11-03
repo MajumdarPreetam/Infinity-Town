@@ -103,6 +103,7 @@ canvas {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 9999; /* ensures it's visible above everything */
 }
 
 .traffic-light {
@@ -127,47 +128,7 @@ canvas {
   transition: background-color 0.5s, box-shadow 0.5s;
 }
 
-/* Default (off) state */
-.red.active {
-  background-color: #ff0000;
-  box-shadow: 0 0 20px 5px #ff0000;
-}
-.yellow.active {
-  background-color: #ffff00;
-  box-shadow: 0 0 20px 5px #ffff00;
-}
-.green.active {
-  background-color: #00ff00;
-  box-shadow: 0 0 20px 5px #00ff00;
-}
-
-/* Smooth cycle animation */
-@keyframes trafficCycle {
-  0%, 20% {
-    background-color: #ff0000;
-    box-shadow: 0 0 20px 5px #ff0000;
-  }
-  25%, 45% {
-    background-color: #ffff00;
-    box-shadow: 0 0 20px 5px #ffff00;
-  }
-  50%, 100% {
-    background-color: #00ff00;
-    box-shadow: 0 0 20px 5px #00ff00;
-  }
-}
-
-/* Animated cycle for demo */
-.light.red {
-  animation: redCycle 9s infinite;
-}
-.light.yellow {
-  animation: yellowCycle 9s infinite;
-}
-.light.green {
-  animation: greenCycle 9s infinite;
-}
-
+/* Animated cycle */
 @keyframes redCycle {
   0%, 33% { background-color: #ff0000; box-shadow: 0 0 20px 5px #ff0000; }
   34%, 100% { background-color: #333; box-shadow: none; }
@@ -180,4 +141,14 @@ canvas {
 @keyframes greenCycle {
   0%, 66% { background-color: #333; box-shadow: none; }
   67%, 100% { background-color: #00ff00; box-shadow: 0 0 20px 5px #00ff00; }
+}
+
+.light.red {
+  animation: redCycle 9s infinite;
+}
+.light.yellow {
+  animation: yellowCycle 9s infinite;
+}
+.light.green {
+  animation: greenCycle 9s infinite;
 }
